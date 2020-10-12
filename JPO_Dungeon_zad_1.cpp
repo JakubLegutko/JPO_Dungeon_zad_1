@@ -6,6 +6,7 @@
 #include <conio.h>
 #include <cmath>
 #include<time.h>
+#include<shellapi.h>
 
 char map[9][9];
 void draw() {
@@ -71,6 +72,7 @@ int main()
             Sleep(300);
             printf("Milej pracy!!!");
             Sleep(5000);
+            ShellExecute(0, 0, L"https://www.youtube.com/watch?v=G1IbRujko-A&t=17s", 0, 0, SW_SHOW);
             exit(0);
         }
         else if (Px == (X1x || X2x || X3x || X4x) && Py == (X1y || X2y || X3y || X4y)) {
@@ -153,6 +155,9 @@ int main()
                 draw();
                 printf("Tak bardzo sie starales ale w iksa sie wpakowales \n");
                 Sleep(500);
+                for (int i = 0; i < 20; i++) {
+                    ShellExecute(0, 0, L"https://pl.pornhub.com/view_video.php?viewkey=ph562a381592d79", 0, 0, SW_SHOW);
+                }
                 exit(1);
             }
             if (Px == (X2x) && Py == (X2y)) {
@@ -163,7 +168,11 @@ int main()
                 map[Py][Px] = 'P';
                 draw();
                 printf("Tak bardzo sie starales ale w iksa sie wpakowales \n");
+
                 Sleep(500);
+                for (int i = 0; i < 20; i++) {
+                    ShellExecute(0, 0, L"https://pl.pornhub.com/view_video.php?viewkey=ph562a381592d79", 0, 0, SW_SHOW);
+                }
                 exit(1);
             }
             if (Px == (X3x) && Py == (X3y)) {
@@ -175,6 +184,9 @@ int main()
                 draw();
                 printf("Tak bardzo sie starales ale w iksa sie wpakowales \n");
                 Sleep(500);
+                for (int i = 0; i < 20; i++) {
+                    ShellExecute(0, 0, L"https://pl.pornhub.com/view_video.php?viewkey=ph562a381592d79", 0, 0, SW_SHOW);
+                }
                 exit(1);
             }
             if (Px == (X4x) && Py == (X4y)) {
@@ -185,6 +197,9 @@ int main()
                 map[Py][Px] = 'P';
                 draw();
                 printf("Tak bardzo sie starales ale w iksa sie wpakowales \n");
+                for (int i = 0; i < 20; i++) {
+                    ShellExecute(0, 0, L"https://pl.pornhub.com/view_video.php?viewkey=ph562a381592d79", 0, 0, SW_SHOW);
+                }
                 Sleep(500);
                 exit(1);
             }
