@@ -8,7 +8,17 @@
 #include<time.h>
 
 char map[9][9];
+void draw_no_clear() {
+    for (int i = 0; i < 9; i++) {
+        printf("\n");
+        for (int j = 0; j < 9; j++) {
+            printf("%c", map[i][j]);
+        }
+    }
+    printf("\n");
+}
 void draw() {
+    system("cls");
     for (int i = 0; i < 9; i++) {
         printf("\n");
         for (int j = 0; j < 9; j++) {
@@ -48,7 +58,7 @@ int main()
     map[6][X4x] = 'X';
     map[0][Px] = 'P';
     map[8][Tx] = 'T';
-    draw();
+    draw_no_clear();
     printf("\nTak wyglada Twoja plansza gry, wyjdz poza nia, a skonczy sie to zle!\n");
 
     while (1)
@@ -101,7 +111,7 @@ int main()
                 case 's' :
                     Pyn = Py + 1;
                     Pxn = Px;
-                    if (Pyn > 9) {
+                    if (Pyn > 8) {
                         printf("Ej szefie, nie za daleko sie to poszlo?");
                         Sleep(2000);
                         exit(1);
