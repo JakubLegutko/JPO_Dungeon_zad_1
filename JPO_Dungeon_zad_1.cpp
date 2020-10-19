@@ -1,7 +1,4 @@
-﻿// JPO_Dungeon_zad_1.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
-//Wersja stabilna, dziala
-
-#include <iostream>
+﻿#include <iostream>
 #include <Windows.h>
 #include <conio.h>
 #include <cmath>
@@ -85,7 +82,7 @@ int main()
         }
         else if (Px == (X1x || X2x || X3x || X4x) && Py == (X1y || X2y || X3y || X4y)) {
             printf("Tak bardzo sie starales ale w iksa sie wpakowales \n");
-            Sleep(500);
+            Sleep(1000);
             exit(1);
             }
         else {
@@ -136,6 +133,7 @@ int main()
                 case 'x':
                     printf("Konczenie gry ....\n");
                     printf("....................");
+                    Sleep(1000);
                     exit(1);
                 default:
                     printf("Ojjjj nie nie byczq, ten klawisz to nie input, ale jestem mily i dam Ci jeszcze jedna szanse!\n");
@@ -211,5 +209,3 @@ int main()
 
     }
 }
-
-
