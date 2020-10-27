@@ -177,6 +177,18 @@ int move(char input) {
         return 3;
     }
 }
+int check_fail() {
+    if (Px == (X1x) && Py == (X1y))
+        return 1;
+    if (Px == (X2x) && Py == (X2y))
+        return 1;
+    if (Px == (X3x) && Py == (X3y))
+        return 1;
+    if (Px == (X4x) && Py == (X4y))
+        return 1;
+    return 0;
+}
+
 int main()
 {
     srand(time(0));
@@ -204,19 +216,9 @@ int main()
             }
 
             refresh_map();
-            if (Px == (X1x) && Py == (X1y)) {
+            if (check_fail()) {
                 lose_sequence();
             }
-            if (Px == (X2x) && Py == (X2y)) {
-                lose_sequence();
-            }
-            if (Px == (X3x) && Py == (X3y)) {
-                lose_sequence();
-            }
-            if (Px == (X4x) && Py == (X4y)) {
-                lose_sequence();
-            }
-
             prep_map();
             draw();
             
