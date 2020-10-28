@@ -5,8 +5,8 @@
 #include<time.h>
 #include<vector>
 
-#define MAP_ROWS 9
-#define MAP_COLS 9
+#define MAP_ROWS 10
+#define MAP_COLS 10
 int Py = 0;
 int Pxn = 0;
 int Pyn = 0;
@@ -14,17 +14,17 @@ const int X1y = 2;
 const int X2y = 3;
 const int X3y = 4;
 const int X4y = 6;
-const int Ty = 8;
-int Tx;
-int Px;
-int X1x;
-int X2x;
-int X3x;
-int X4x;
-int X1xm;
-int X2xm;
-int X3xm;
-int X4xm;
+const int Ty = 9;
+int Tx{};
+int Px{};
+int X1x{};
+int X2x{};
+int X3x{};
+int X4x{};
+int X1xm{};
+int X2xm{};
+int X3xm{};
+int X4xm{};
 using std::vector;
 
 
@@ -32,11 +32,16 @@ using std::vector;
 vector<vector<char>> map;
 
 void map_init() {
+    vector<char> map_cols;
     for (int i = 0; i < MAP_COLS; i++) {
-        for (int j = 0; j < MAP_ROWS; j++) {
-            map.resize(MAP_ROWS, vector<char>(MAP_COLS, '.'));
+        
+        map_cols.push_back('.');
+}
+    
+    for (int i = 0; i < MAP_ROWS; i++) {    
+            map.push_back(map_cols);
         }
-    }
+    
 }
 void draw_no_clear() {
     for (int i = 0; i < MAP_COLS; i++) {
@@ -114,6 +119,10 @@ void refresh_map() {
     X2x = abs(X2x + X2xm);
     X3x = abs(X3x + X3xm);
     X4x = abs(X4x + X4xm);
+    if ((X1x >= MAP_COLS) || (X4x < 0)) X1x = rand() % 10;
+    if ((X2x >= MAP_COLS) || (X4x < 0)) X2x = rand() % 10;
+    if ((X3x >= MAP_COLS) || (X4x < 0)) X3x = rand() % 10;
+    if ((X4x >= MAP_COLS) || (X4x < 0)) X4x = rand() % 10;
     Py = Pyn;
     Px = Pxn;
 }
@@ -122,10 +131,10 @@ void randomize_X() {
     X2xm = rand() % 3;
     X3xm = rand() % 3;
     X4xm = rand() % 3;
-    X1xm -= 3;
-    X2xm -= 3;
-    X3xm -= 3;
-    X4xm -= 3;
+    X1xm -= 1;
+    X2xm -= 1;
+    X3xm -= 1;
+    X4xm -= 1;
 }
 int move(char input) {
     switch (input) {
@@ -141,7 +150,7 @@ int move(char input) {
     case 's':
         Pyn = Py + 1;
         Pxn = Px;
-        if (Pyn > 8) {
+        if (Pyn > MAP_ROWS - 1) {
             printf("Ej szefie, nie za daleko sie to poszlo?");
             Sleep(2000);
             map.clear();
@@ -159,7 +168,7 @@ int move(char input) {
         return 1;
     case 'd':
         Pxn = Px + 1;
-        if (Pxn > 9) {
+        if (Pxn > MAP_COLS -1) {
             printf("Niektorzy mowia:tak blisko. Ja wole stwierdzenie zle.");
             Sleep(2000);
             map.clear();
@@ -191,7 +200,7 @@ int check_fail() {
 
 int main()
 {
-    srand(time(0));
+    srand(time(NULL));
     
     std::cout << "Witaj w Grze!\n";
     std::cout << "Ruszasz sie WASD, baw sie dobrze, T to skarb, chcesz to chlopcze, X cię zamorduje nie dotykaj, P to Ty!, naciskajac x konczysz gre :(\n";
